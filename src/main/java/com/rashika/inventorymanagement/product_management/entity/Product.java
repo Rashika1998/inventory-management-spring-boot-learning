@@ -1,12 +1,10 @@
 package com.rashika.inventorymanagement.product_management.entity;
-
-
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+//Javax persistence
 @Entity
 public class Product {
 
