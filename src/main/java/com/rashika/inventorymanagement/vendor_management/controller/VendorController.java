@@ -2,10 +2,7 @@ package com.rashika.inventorymanagement.vendor_management.controller;
 import com.rashika.inventorymanagement.vendor_management.entity.Vendor;
 import com.rashika.inventorymanagement.vendor_management.service.VendorService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,6 +20,22 @@ public class VendorController {
     @GetMapping("/vendors")
     public List<Vendor> getAllVendors(){
         return vendorService.getAllVendors();
+    }
+
+    @GetMapping("/vendors/{id}")
+    public Vendor getVendorById(@PathVariable("id") Long vendorId){
+        return vendorService.getVendorById(vendorId);
+    }
+
+    @DeleteMapping("/vendors/{id}")
+    public String deleteVendorById(@PathVariable("id") Long vendorId){
+        vendorService.deleteVendorById(vendorId);
+        return "Vendor has been removed successfully.";
+    }
+
+    @PutMapping("/vendors/{id}")
+    public Vendor updateVendorById(@PathVariable("id") Long vendorId,@RequestBody Vendor vendor){
+        return vendorService.updateVendorById(vendorId, vendor);
     }
 
 
