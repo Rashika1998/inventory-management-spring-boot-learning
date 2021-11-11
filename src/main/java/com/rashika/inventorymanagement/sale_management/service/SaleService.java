@@ -9,4 +9,10 @@ public interface SaleService {
     public Sale addNewSale(Sale sale);
 
     public List<Sale> getAllSales();
+
+    public Sale getASale(Long saleId);
+
+    public void deleteASale(Long saleId);
+
+    public Sale updateSale(Long saleId, Sale sale);
 }
