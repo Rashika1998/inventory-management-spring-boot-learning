@@ -14,4 +14,6 @@ public interface EmployeeService {
     public void deleteEmployee(Long employeeId);
 
     public Employee updateEmployee(Long employeeId, Employee employee);
+
+    public Employee fetchEmployeeByName(String employeeName);
 }

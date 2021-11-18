@@ -57,8 +57,13 @@ public class EmployeeServiceImpl implements EmployeeService{
         if (Objects.nonNull(employee.getEmployeeSalary())){
             employeeDB.setEmployeeSalary(employee.getEmployeeSalary());
         }
-
         return employeeRepository.save(employeeDB);
+
+    }
+
+    @Override
+    public Employee fetchEmployeeByName(String employeeName) {
+        return employeeRepository.findByEmployeeName(employeeName);
     }
 
 
