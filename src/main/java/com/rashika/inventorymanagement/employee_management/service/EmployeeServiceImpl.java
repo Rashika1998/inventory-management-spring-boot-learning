@@ -66,5 +66,10 @@ public class EmployeeServiceImpl implements EmployeeService{
         return employeeRepository.findByEmployeeName(employeeName);
     }
 
+    @Override
+    public List<Employee> fetchAllEmployeeByEmployeeSalary(double employeeSalary) {
+        return employeeRepository.fetchAllEmployeeByEmployeeSalary(employeeSalary);
+    }
+
 
 }

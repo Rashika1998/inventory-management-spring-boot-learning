@@ -16,4 +16,6 @@ public interface EmployeeService {
     public Employee updateEmployee(Long employeeId, Employee employee);
 
     public Employee fetchEmployeeByName(String employeeName);
+
+    public List<Employee> fetchAllEmployeeByEmployeeSalary(double employeeSalary);
 }

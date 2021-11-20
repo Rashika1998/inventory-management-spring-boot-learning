@@ -44,5 +44,10 @@ public class EmployeeController {
         return employeeService.fetchEmployeeByName(employeeName);
     }
 
+    @GetMapping("/employees/salary/{salary}")
+    public List<Employee> fetchAllEmployeeByEmployeeSalary(@PathVariable("salary") double employeeSalary){
+        return employeeService.fetchAllEmployeeByEmployeeSalary(employeeSalary);
+    }
+
 
 }
