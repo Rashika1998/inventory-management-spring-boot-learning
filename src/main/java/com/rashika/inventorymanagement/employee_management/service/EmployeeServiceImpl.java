@@ -58,7 +58,6 @@ public class EmployeeServiceImpl implements EmployeeService{
             employeeDB.setEmployeeSalary(employee.getEmployeeSalary());
         }
         return employeeRepository.save(employeeDB);
-
     }
 
     @Override
@@ -69,6 +68,11 @@ public class EmployeeServiceImpl implements EmployeeService{
     @Override
     public List<Employee> fetchAllEmployeeByEmployeeSalary(double employeeSalary) {
         return employeeRepository.fetchAllEmployeeByEmployeeSalary(employeeSalary);
+    }
+
+    @Override
+    public List<Employee> fetchAllEmployeesByIsPermanentAndSalary(boolean employeeIsPermanent, double employeeSalary) {
+        return employeeRepository.fetchAllEmployeesByIsPermanentAndSalary(employeeIsPermanent, employeeSalary);
     }
 
 

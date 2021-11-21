@@ -49,5 +49,12 @@ public class EmployeeController {
         return employeeService.fetchAllEmployeeByEmployeeSalary(employeeSalary);
     }
 
+    @GetMapping("/employees/is-permanent/salary/{is_permanent}/{salary}")
+    public List<Employee> fetchAllEmployeesByIsPermanentAndSalary(@PathVariable("is_permanent") boolean employeeIsPermanent, @PathVariable("salary") double employeeSalary){
+        return employeeService.fetchAllEmployeesByIsPermanentAndSalary(employeeIsPermanent, employeeSalary);
+    }
+
+
+
 
 }

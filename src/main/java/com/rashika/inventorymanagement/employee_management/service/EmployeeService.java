@@ -18,4 +18,6 @@ public interface EmployeeService {
     public Employee fetchEmployeeByName(String employeeName);
 
     public List<Employee> fetchAllEmployeeByEmployeeSalary(double employeeSalary);
+
+    public List<Employee> fetchAllEmployeesByIsPermanentAndSalary(boolean employeeIsPermanent, double employeeSalary);
 }
