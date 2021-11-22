@@ -86,6 +86,14 @@ public class Employee {
         this.employeeSalary = employeeSalary;
     }
 
+    public Employee(String employeeCode, String employeeName, String employeeAge, boolean employeeIsPermanent, double employeeSalary) {
+        this.employeeCode = employeeCode;
+        this.employeeName = employeeName;
+        this.employeeAge = employeeAge;
+        this.employeeIsPermanent = employeeIsPermanent;
+        this.employeeSalary = employeeSalary;
+    }
+
     public Employee() {
     }
 
