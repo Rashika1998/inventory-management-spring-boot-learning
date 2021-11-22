@@ -1,12 +1,14 @@
 package com.rashika.inventorymanagement.employee_management.service;
 
 import com.rashika.inventorymanagement.employee_management.entity.Employee;
+import com.rashika.inventorymanagement.employee_management.error.EmployeeNotFoundException;
 import com.rashika.inventorymanagement.employee_management.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
@@ -25,8 +27,14 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    public Employee getEmployee(Long employeeId) {
-        return employeeRepository.findById(employeeId).get();
+    public Employee getEmployee(Long employeeId) throws EmployeeNotFoundException {
+        Optional<Employee> employee = employeeRepository.findById(employeeId);
+
+        if (!employee.isPresent()){
+            throw new EmployeeNotFoundException("Employee not available!");
+        }
+        return employee.get();
+
     }
 
     @Override

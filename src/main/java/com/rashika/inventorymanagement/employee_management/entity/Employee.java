@@ -1,9 +1,13 @@
 package com.rashika.inventorymanagement.employee_management.entity;
 
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Employee {
@@ -13,7 +17,14 @@ public class Employee {
     private Long employeeId;
 
     private String employeeCode;
+
+    @NotBlank(message = "Please add employee name.")
+    /*
+    @Length(max = 10, min = 5)
+    @Size(max = 10, min = 0)
+     */
     private String employeeName;
+
     private String employeeAge;
     private boolean employeeIsPermanent;
     private double employeeSalary;

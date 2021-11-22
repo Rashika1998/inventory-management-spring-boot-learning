@@ -1,6 +1,7 @@
 package com.rashika.inventorymanagement.employee_management.service;
 
 import com.rashika.inventorymanagement.employee_management.entity.Employee;
+import com.rashika.inventorymanagement.employee_management.error.EmployeeNotFoundException;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ public interface EmployeeService {
 
     public List<Employee> getAllEmployees();
 
-    public Employee getEmployee(Long employeeId);
+    public Employee getEmployee(Long employeeId) throws EmployeeNotFoundException;
 
     public void deleteEmployee(Long employeeId);
 
