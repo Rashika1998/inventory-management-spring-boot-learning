@@ -6,8 +6,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class InventoryManagementApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+	//We focus on our own test cases
+	//First go with service layer
+
 
 }

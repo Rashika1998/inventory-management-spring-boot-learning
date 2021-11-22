@@ -1,10 +1,14 @@
 package com.rashika.inventorymanagement.employee_management.controller;
 
 import com.rashika.inventorymanagement.employee_management.entity.Employee;
+import com.rashika.inventorymanagement.employee_management.error.EmployeeNotFoundException;
 import com.rashika.inventorymanagement.employee_management.service.EmployeeService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -13,8 +17,13 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
+
+    private final Logger LOGGER = LoggerFactory.getLogger(EmployeeController.class);
+
+
     @PostMapping("/employees")
-    public Employee addEmployee(@RequestBody Employee employee){
+    public Employee addEmployee(@Valid @RequestBody Employee employee){
+        LOGGER.info("Inside addEmployee of EmployeeController.");
         return employeeService.addEmployee(employee);
     }
 
@@ -24,7 +33,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/employees/{id}")
-    public Employee getEmployee(@PathVariable("id") Long employeeId){
+    public Employee getEmployee(@PathVariable("id") Long employeeId) throws EmployeeNotFoundException {
         return employeeService.getEmployee(employeeId);
     }
 
@@ -48,6 +57,13 @@ public class EmployeeController {
     public List<Employee> fetchAllEmployeeByEmployeeSalary(@PathVariable("salary") double employeeSalary){
         return employeeService.fetchAllEmployeeByEmployeeSalary(employeeSalary);
     }
+
+    @GetMapping("/employees/is-permanent/salary/{is_permanent}/{salary}")
+    public List<Employee> fetchAllEmployeesByIsPermanentAndSalary(@PathVariable("is_permanent") boolean employeeIsPermanent, @PathVariable("salary") double employeeSalary){
+        return employeeService.fetchAllEmployeesByIsPermanentAndSalary(employeeIsPermanent, employeeSalary);
+    }
+
+
 
 
 }
